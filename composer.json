@@ -1,0 +1,14 @@
+{
+    "name": "drkthunder02/test-crest",
+    "description": "Just a program to test crest end points for eve online",
+    "authors": [
+        {
+            "name": "drkthunder02",
+            "email": "mancuso.christopher@gmail.com"
+        }
+    ],
+    "require": {
+        "simplon/mysql": "dev-master",
+        "EvELabs/oauth2-eveonline": "1.1.0"
+    }
+}
