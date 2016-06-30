@@ -66,10 +66,12 @@ if (!isset($_GET['code'])) {
     }
     
     try {
+        $header = 'Tester ' . $_SESSION['token']->getToken();
         $request = $provider->getAuthenticatedRequest(
             'GET',
             'https://crest-tq.eveonline.com/characters/' . $id . '/',
-            $accessToken->getToken()
+            $accessToken->getToken(),
+            array('headers' => $header )
         );
 
         $response = $provider->getResponse($request);
