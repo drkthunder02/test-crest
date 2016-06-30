@@ -69,7 +69,7 @@ if (!isset($_GET['code'])) {
         $header = 'Tester ' . $_SESSION['token']->getToken();
         $request = $provider->getAuthenticatedRequest(
             'GET',
-            'https://crest-tq.eveonline.com/characters/' . $id . '/',
+            'https://crest-tq.eveonline.com/characters/' . $id . '/location/',
             $accessToken->getToken(),
             array('headers' => $header )
         );
