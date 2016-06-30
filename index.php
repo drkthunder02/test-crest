@@ -57,7 +57,7 @@ if (!isset($_GET['code'])) {
         // Use these details to create a new profile
         printf('Hello %s! ', $user->getCharacterName());
         $id = $user->getCharacterID();
-        var_dump($id);
+        $name = $user->getCharacterName();
 
     } catch (\Exception $e) {
 
@@ -70,8 +70,7 @@ if (!isset($_GET['code'])) {
         $request = $provider->getAuthenticatedRequest(
             'GET',
             'https://crest-tq.eveonline.com/characters/' . $id . '/location/',
-            $accessToken->getToken(),
-            array('headers' => $header )
+            $_SESSION['token']->getToken()
         );
 
         $response = $provider->getResponse($request);
