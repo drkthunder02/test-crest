@@ -62,6 +62,21 @@ if (!isset($_GET['code'])) {
         // Failed to get user details
         exit('Oh dear...');
     }
+    
+    try {
+        $request = $provider->getAuthenticatedRequest(
+            'GET',
+            'https://crest-tq.eveonline.com/characters/{characterID}/',
+            $accessToken->getToken()
+        );
+
+        $response = $provider->getResponse($request);
+        var_dump($response);
+        
+    } catch (Exception $ex) {
+        // Failed to get user details
+        exit('Failed to get character information.');
+    }
 
     // Use this to interact with an API on the users behalf
     printf('Your access token is: %s', $_SESSION['token']->getToken());
