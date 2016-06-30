@@ -57,6 +57,7 @@ if (!isset($_GET['code'])) {
         // Use these details to create a new profile
         printf('Hello %s! ', $user->getCharacterName());
         $id = $user->getCharacterID();
+        var_dump($id);
 
     } catch (\Exception $e) {
 
