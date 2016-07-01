@@ -85,5 +85,5 @@ if (!isset($_GET['code'])) {
     // Use this to interact with an API on the users behalf
     printf('Your access token is: %s', $_SESSION['token']->getToken());
     printf("<br>");
-    printf('You are in a solar system named: %s', $response->solarsystem->name);
+    printf('You are in a solar system named: %s', $response[0]->solarsystem[0]->name);
 }
