@@ -66,7 +66,7 @@ if (!isset($_GET['code'])) {
     }
     
     try {
-        $header = 'Tester ' . $_SESSION['token']->getToken();
+        $header = 'Authorization: Bearer ' . $_SESSION['token']->getToken();
         $request = $provider->getAuthenticatedRequest(
             'GET',
             'https://crest-tq.eveonline.com/characters/' . $id . '/location/',
@@ -80,7 +80,7 @@ if (!isset($_GET['code'])) {
         printf("<br>");
         print_r($response);
         printf("<br>");
-        
+                
         
     } catch (Exception $ex) {
         // Failed to get user details
@@ -90,5 +90,7 @@ if (!isset($_GET['code'])) {
     // Use this to interact with an API on the users behalf
     printf('Your access token is: %s', $_SESSION['token']->getToken());
     printf("<br>");
-    printf('You are in a solar system named: %s', $response['solarsystem']->name);
+    printf('You are in a solar system named: %s', $response->items->solarsystem->name);
+    printf("<br>");
+    printf('You are in a solar system named: %s', $solarSystem);
 }
