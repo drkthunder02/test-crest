@@ -75,6 +75,8 @@ if (!isset($_GET['code'])) {
         );
 
         $response = $provider->getResponse($request);
+        printf("<br>");
+        var_dump($response);
         
         
     } catch (Exception $ex) {
