@@ -75,7 +75,8 @@ if (!isset($_GET['code'])) {
         );
 
         $response = $provider->getResponse($request);
-        var_dump($response);
+        $json = json_decode($response);
+        var_dump($json);
         
     } catch (Exception $ex) {
         // Failed to get user details
