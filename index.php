@@ -78,15 +78,12 @@ if (!isset($_GET['code'])) {
         printf("<br>");
         foreach($response as $item) {
             printf("You are in: ");
-            printf("1.)  ");
-            printf($item->name);
-            printf("2.)  ");
             printf($item['name']);
             printf("<br>");
         }
                 
         
-    } catch (Exception $ex) {
+    } catch (\Exception $e) {
         // Failed to get user details
         exit('Failed to get character information.');
     }
