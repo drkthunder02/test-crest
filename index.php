@@ -80,8 +80,12 @@ if (!isset($_GET['code'])) {
         printf("<br>");
         var_dump(array_values($response));
         printf("<br>");
-        printf('You are in solarsystem: %s', $response[0]['name']);
-        printf("<br>");
+        foreach($response as $item) {
+            printf("You are in: ");
+            printf($item->name);
+            printf($item['name']);
+            printf("<br>");
+        }
                 
         
     } catch (Exception $ex) {
