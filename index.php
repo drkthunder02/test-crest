@@ -76,13 +76,11 @@ if (!isset($_GET['code'])) {
 
         $response = $provider->getResponse($request);
         printf("<br>");
-        var_dump(array_keys($response));
-        printf("<br>");
-        var_dump(array_values($response));
-        printf("<br>");
         foreach($response as $item) {
             printf("You are in: ");
+            printf("1.)  ");
             printf($item->name);
+            printf("2.)  ");
             printf($item['name']);
             printf("<br>");
         }
