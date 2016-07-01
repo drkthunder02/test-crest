@@ -88,5 +88,5 @@ if (!isset($_GET['code'])) {
     // Use this to interact with an API on the users behalf
     printf('Your access token is: %s', $_SESSION['token']->getToken());
     printf("<br>");
-    var_dump($response->solarsystem);
+    var_dump($response['solarsystem']);
 }
