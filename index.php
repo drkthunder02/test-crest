@@ -92,7 +92,7 @@ if (!isset($_GET['code'])) {
         $header = 'Authorization: Bearer ' . $_SESSION['token']->getToken();
         $request = $provider->getAuthenticatedRequest(
             'GET',
-            'https://crest-tq.eveonline.com/fleets/1164311244975/wings/2184011244975/',
+            'https://crest-tq.eveonline.com/fleets/1164311244975/wings/',
             $_SESSION['token']->getToken(),
             array('header' => $header)
         );
