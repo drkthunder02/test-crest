@@ -92,20 +92,20 @@ if (!isset($_GET['code'])) {
         $header = 'Authorization: Bearer ' . $_SESSION['token']->getToken();
         $request = $provider->getAuthenticatedRequest(
             'GET',
-            'https://crest-tq.eveonline.com/fleets/1164311244975/',
+            'https://crest-tq.eveonline.com/fleets/1164311244975/wings/',
             $_SESSION['token']->getToken(),
             array('header' => $header)
         );
 
         $response = $provider->getResponse($request);
         printf("<br>");
-        var_dump($response['wings']);
+        var_dump($response);
         printf("<br>");
                 
         
     } catch (\Exception $e) {
         // Failed to get user details
-        exit('Failed to get character information.');
+        exit('Failed to get fleet wing information.');
     }
 
     // Use this to interact with an API on the users behalf
