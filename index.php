@@ -99,7 +99,7 @@ if (!isset($_GET['code'])) {
 
         $response = $provider->getResponse($request);
         printf("<br>");
-        var_dump($response->wings);
+        var_dump($response['wings']);
         printf("<br>");
                 
         
