@@ -102,11 +102,8 @@ if (!isset($_GET['code'])) {
         var_dump($response);
         printf("<br>");
         $members = $response['character'];
-        foreach($members as $member) {
-            printf("member: ");
-            printf($member['name']);
-            printf("<br>");
-        }
+        var_dump($members);
+        printf("<br>");
                 
         
     } catch (\Exception $e) {
