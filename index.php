@@ -102,7 +102,8 @@ if (!isset($_GET['code'])) {
         foreach($response as $item => $key) {
             printf($item);
             printf(": ");
-            printf($key);
+            printf($item[$key]);
+            printf("<br>");
         }
                 
         
