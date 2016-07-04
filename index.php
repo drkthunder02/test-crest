@@ -14,7 +14,7 @@ if (!isset($_GET['code'])) {
     // make sure you have them enabled on your app page at
     // https://developers.eveonline.com/applications/
     $options = [
-        'scope' => ['publicData','characterLocationRead'] // array or string
+        'scope' => ['publicData','characterLocationRead', 'fleetRead'] // array or string
     ];
 
     // If we don't have an authorization code then get one
@@ -47,7 +47,7 @@ if (!isset($_GET['code'])) {
         // Purge old access token and store new access token to your data store.
         $_SESSION['token'] = $new_token;
     }
-
+    //This one reads character information
     // Optional: Now you have a token you can look up a users profile data
     try {
 
@@ -64,7 +64,7 @@ if (!isset($_GET['code'])) {
         // Failed to get user details
         exit('Oh dear...');
     }
-    
+    //This one reads character information
     try {
         $header = 'Authorization: Bearer ' . $_SESSION['token']->getToken();
         $request = $provider->getAuthenticatedRequest(
@@ -81,6 +81,31 @@ if (!isset($_GET['code'])) {
             printf($item['name']);
             printf("<br>");
         }
+                
+        
+    } catch (\Exception $e) {
+        // Failed to get user details
+        exit('Failed to get character information.');
+    }
+    //This one is going to try to read fleet status 
+    try {
+        $header = 'Authorization: Bearer ' . $_SESSION['token']->getToken();
+        $request = $provider->getAuthenticatedRequest(
+            'GET',
+            'https://crest-tq.eveonline.com/fleets/1164311244975/',
+            $_SESSION['token']->getToken(),
+            array('header' => $header)
+        );
+
+        $response = $provider->getResponse($request);
+        printf("<br>");
+        var_dump($response);
+        printf("<br>");
+        //foreach($response as $item) {
+            //printf("Fleet details: ");
+            //printf($item['name']);
+            //printf("<br>");
+        //}
                 
         
     } catch (\Exception $e) {
