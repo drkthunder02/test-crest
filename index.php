@@ -101,9 +101,10 @@ if (!isset($_GET['code'])) {
         printf("<br>");
         var_dump($response);
         printf("<br>");
-        foreach($repsonse as $member) {
+        $members = $response['character'];
+        foreach($members as $member) {
             printf("member: ");
-            printf($member->character->name);
+            printf($member['name']);
             printf("<br>");
         }
                 
