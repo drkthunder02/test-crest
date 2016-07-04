@@ -99,13 +99,11 @@ if (!isset($_GET['code'])) {
 
         $response = $provider->getResponse($request);
         printf("<br>");
-        var_dump($response);
-        printf("<br>");
-        //foreach($response as $item) {
-            //printf("Fleet details: ");
-            //printf($item['name']);
-            //printf("<br>");
-        //}
+        foreach($response as $item => $key) {
+            printf($item);
+            printf(": ");
+            printf($key);
+        }
                 
         
     } catch (\Exception $e) {
