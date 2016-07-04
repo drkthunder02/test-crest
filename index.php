@@ -99,12 +99,8 @@ if (!isset($_GET['code'])) {
 
         $response = $provider->getResponse($request);
         printf("<br>");
-        foreach($response as $item => $key) {
-            printf($item);
-            printf(": ");
-            printf($key);
-            printf("<br>");
-        }
+        var_dump($response->wings);
+        printf("<br>");
                 
         
     } catch (\Exception $e) {
