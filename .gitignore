@@ -1,2 +1,4 @@
 /test-crest
 /test-crest.pub
+/vendor
+/composer.lock
